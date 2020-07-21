@@ -14,14 +14,32 @@ public class InteractScript : MonoBehaviour
         {
             Ray ray = new Ray(transform.position, transform.forward);
             Debug.DrawRay(ray.origin, ray.direction * InteractDistance, Color.red, 1);
-
             RaycastHit hit;
             if(Physics.Raycast(ray, out hit, InteractDistance))
             {
                 if (hit.collider.CompareTag("Door"))
                 {
-                    hit.collider.transform.parent.GetComponent<DoorScript>().ChangeDoorState();
+                    DoorScript doorScript = hit.collider.transform.parent.GetComponent<DoorScript>();
+                    if (doorScript == null) return;
+
+                    if (Inventory.keyCount > 0)
+                    {
+                        doorScript.ChangeDoorState();
+                    }
+                    else
+                    {
+                        Debug.Log("プギャー9(^@^)wwww");
+                    }
                 }
+                else if (hit.collider.CompareTag("KeyItem"))
+                {
+                    Inventory.keyCount += 2;
+                    Debug.Log("鍵ゲット！");
+                }
+                else if (hit.collider.CompareTag("NextLevelDoor"))
+                    {   
+                        Application.LoadLevel(1);
+                    }
             }
         }
     }

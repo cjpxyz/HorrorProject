@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
+    public int index = -1;
     public bool open = false;
     public float doorOpenAngle = 90f;
     public float doorCloseAngle = 0f;
