@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EPOOutline;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,16 +11,19 @@ public class InteractScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Ray ray = new Ray(transform.position, transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction * InteractDistance, Color.red, 1);
+        RaycastHit hit;
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Ray ray = new Ray(transform.position, transform.forward);
-            Debug.DrawRay(ray.origin, ray.direction * InteractDistance, Color.red, 1);
-            RaycastHit hit;
+            
             if(Physics.Raycast(ray, out hit, InteractDistance))
             {
                 if (hit.collider.CompareTag("Door"))
                 {
                     DoorScript doorScript = hit.collider.transform.parent.GetComponent<DoorScript>();
+                    Outlinable outlinable = hit.collider.transform.parent.GetComponent<Outlinable>();
                     if (doorScript == null) return;
 
                     if (Inventory.keyCount > 0)

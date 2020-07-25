@@ -24,13 +24,16 @@ public class physicWalk : MonoBehaviour {
 	private bool canJump = true;
 	private float canJumpCounter = 0f;
 
-	public AudioClip footstepSound;
+	public AudioSource footstepSound;
 	public AudioClip fallSound;
+
+	[SerializeField] bool randomizePitch = true;
+	[SerializeField] float pitchRange = 0.1f;
 
 	void Start()
 	{
 		instance = this;
-		
+		footstepSound = GetComponent<AudioSource>();
 		collider = gameObject.GetComponent< CapsuleCollider >();
 	}
 	
@@ -99,7 +102,9 @@ public class physicWalk : MonoBehaviour {
 
 	public void playFootstepSound()
 	{
-		GetComponent<AudioSource>().PlayOneShot( footstepSound );
+		if (randomizePitch)
+			footstepSound.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+		    footstepSound.PlayOneShot(footstepSound.clip);
 	}
 
 	void FixedUpdate ()
