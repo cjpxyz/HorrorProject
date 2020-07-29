@@ -39,8 +39,6 @@ public class CursorVisitor : Visitor
         {
             if (hit.collider.CompareTag("KeyItem"))
             {
-                hit.collider.GetComponent<Outlinable>().enabled = true;
-
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     {
@@ -55,10 +53,5 @@ public class CursorVisitor : Visitor
                 }
             }
         }
-        else
-        {
-            hit.collider.GetComponent<Outlinable>().enabled = false;
-        }
-
     }
 }

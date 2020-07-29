@@ -18,7 +18,6 @@ public class UIVisible : MonoBehaviour
         {
             icon.layer = LayerMask.NameToLayer("UI");
         }
-
     }
 
     void OnTriggerExit(Collider other)
@@ -27,6 +26,5 @@ public class UIVisible : MonoBehaviour
         {
             icon.layer = LayerMask.NameToLayer("Invisible");
         }
-
     }
 }

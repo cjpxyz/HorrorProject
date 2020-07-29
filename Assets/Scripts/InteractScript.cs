@@ -23,7 +23,6 @@ public class InteractScript : MonoBehaviour
                 if (hit.collider.CompareTag("Door"))
                 {
                     DoorScript doorScript = hit.collider.transform.parent.GetComponent<DoorScript>();
-                    Outlinable outlinable = hit.collider.transform.parent.GetComponent<Outlinable>();
                     if (doorScript == null) return;
 
                     if (Inventory.keyCount > 0)
