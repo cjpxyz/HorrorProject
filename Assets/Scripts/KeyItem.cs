@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class KeyItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private KeyType keyType;
+
+    public enum KeyType
     {
-        
+        zero, 
+        one, 
+        two, 
+        three,
     }
 
-    // Update is called once per frame
-    void Update()
+    public KeyType GetKeyType()
     {
-        
+        return keyType;
     }
 }

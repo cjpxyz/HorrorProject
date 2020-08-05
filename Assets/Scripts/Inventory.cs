@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static int keyCount;
+    public List<KeyItem.KeyType> keyList;
 
-    void start()
+    void Start()
     {
-       // keys[1] = true;
+        keyList = new List<KeyItem.KeyType>();
+        keyList.Add(KeyItem.KeyType.zero);
     }
 }

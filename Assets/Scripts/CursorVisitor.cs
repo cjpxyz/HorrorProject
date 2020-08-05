@@ -7,7 +7,6 @@ public class CursorVisitor : Visitor
 {
     private Ray ray;
     public Camera MainCamera;
-
     public float InteractDistance = 5f;
 
     public override void Visit(ItemAcceptor acceptor)
