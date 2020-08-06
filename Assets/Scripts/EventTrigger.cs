@@ -17,9 +17,9 @@ public class EventTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //GetComponent<BoxCollider>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
             audioSource.PlayOneShot(sound1);
-            next.SetActive(true);
+            next.SetActive(true);　//次のイベントトリガーを有効化
         }
         
     }

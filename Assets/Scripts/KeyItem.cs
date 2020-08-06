@@ -16,6 +16,6 @@ public class KeyItem : MonoBehaviour
 
     public KeyType GetKeyType()
     {
-        return keyType;
+        return keyType;　//鍵の種類を返す
     }
 }

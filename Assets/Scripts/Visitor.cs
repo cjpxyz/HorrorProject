@@ -7,5 +7,5 @@ public abstract class Visitor : MonoBehaviour
     // Start is called before the first frame update
     public abstract void Visit(ItemAcceptor acceptor);
     public abstract void Visit(DoorAcceptor acceptor);
-    //public abstract void visit(ItemAcceptor acceptor);
+    public abstract void Visit(NoteAcceptor acceptor);
 }

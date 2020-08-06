@@ -9,6 +9,6 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         keyList = new List<KeyItem.KeyType>();
-        keyList.Add(KeyItem.KeyType.zero);
+        keyList.Add(KeyItem.KeyType.zero);　//鍵を入手しなくても開けられるドアはKeyTypeをzeroに設定しておくこと
     }
 }

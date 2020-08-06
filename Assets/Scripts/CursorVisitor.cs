@@ -12,7 +12,7 @@ public class CursorVisitor : Visitor
     public override void Visit(ItemAcceptor acceptor)
     {
         acceptor.Accept(this);
-        Debug.Log("アイテムを取得する処理");
+        Debug.Log("アイテムを取得");
     }
 
     public override void Visit(DoorAcceptor acceptor)
@@ -20,6 +20,13 @@ public class CursorVisitor : Visitor
         acceptor.Accept(this);
         Debug.Log("ドア開閉");
     }
+
+    public override void Visit(NoteAcceptor acceptor)
+    {
+        acceptor.Accept(this);
+        Debug.Log("ノートゲット");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,10 +51,13 @@ public class CursorVisitor : Visitor
                         GameObject game = hit.collider.gameObject;
 
                         ItemAcceptor item = game.GetComponent<ItemAcceptor>();
-                        if (item != null) Visit(item);
+                        if (item != null) Visit(item);//対象オブジェクトにitemが含まれていればitemにアクセス
 
                         DoorAcceptor door = game.GetComponent<DoorAcceptor>();
-                        if (door != null) Visit(door);
+                        if (door != null) Visit(door);//対象オブジェクトにdoorが含まれていればdoorにアクセス
+
+                        NoteAcceptor note = game.GetComponent<NoteAcceptor>();
+                        if (note != null) Visit(note);//対象オブジェクトにnoteが含まれていればnoteにアクセス
                     }
                 }
             }

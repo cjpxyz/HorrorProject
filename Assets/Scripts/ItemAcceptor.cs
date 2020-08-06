@@ -13,7 +13,7 @@ public class ItemAcceptor : Acceptor
     public void AddKey(KeyItem.KeyType keytype)
     {
         Debug.Log("鍵げっちゅ" + keytype);
-        inventory.keyList.Add(keytype);
+        inventory.keyList.Add(keytype); //Inventoryに鍵の情報を渡す
     }
     public override void Accept(Visitor visitor)
     {
